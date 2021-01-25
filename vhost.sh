@@ -41,12 +41,15 @@ do
                 LOGP=$LOG\php.log
                 touch "$LOGE" "$LOGA" "$LOGP"
                 mkdir -p "$d/public"
+
                 mkdir -p "$d/tmp"
+                find "$d/tmp" -depth -type f -mtime +1 -delete
+
                 echo "
 <VirtualHost 0.0.0.0:80>
         DocumentRoot "$d/public"
         ServerAlias "$dn"
-        ServerAlias "dev.$dn"
+        ServerAlias "www.$dn"
         ErrorLog "$d/log/$(hostname)_error.log"
         CustomLog "$d/log/$(hostname)_access.log" combined
 
