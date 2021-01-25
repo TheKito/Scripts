@@ -56,6 +56,7 @@ do
         php_admin_value open_basedir "$d"
         php_admin_value upload_tmp_dir "$d/tmp"
         php_admin_value sys_temp_dir "$d/tmp"
+        php_admin_value session.save_handler "files"
         php_admin_value session.save_path "$d/tmp"
         php_value max_execution_time 30
         php_flag log_errors on
@@ -81,6 +82,7 @@ echo "
         php_admin_value open_basedir "$d"
         php_admin_value upload_tmp_dir "$d/tmp"
         php_admin_value sys_temp_dir "$d/tmp"
+        php_admin_value session.save_handler "files"		
         php_admin_value session.save_path "$d/tmp"
         php_value max_execution_time 30
         php_flag log_errors on
