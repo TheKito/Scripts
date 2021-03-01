@@ -59,8 +59,6 @@ echo "
 /^X-*:/ IGNORE
 
 " > /etc/postfix/header_checks
-
-
 postmap /etc/postfix/header_checks
 
 touch /etc/postfix/sasl_passwd
