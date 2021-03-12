@@ -10,7 +10,7 @@ echo "Destination: $DST"
 echo "================================================================="
 /usr/bin/ffmpeg -i "$SRC"  -c:v libx264 -c:a aac -strict experimental -vf yadif=1 -channel_layout stereo -tune fastdecode -pix_fmt yuv420p -b:a 192k -ar 48000  "$DST" && \
 (touch -d @$(stat -c "%Y" "$SRC") "$DST")  &&  \
-rm -v "$SRC" /Storage/Share/Trash/
+rm -v "$SRC"
 
 #/usr/bin/ffmpeg -i "$SRC"  -c:v libx264  "$DST.test1.mp4"
 #/usr/bin/ffmpeg -i "$SRC"  -c:v libx264 -crf 1 "$DST.test2.mp4"
