@@ -15,6 +15,5 @@ echo HST: $HST
 
 mkdir -p "$DST" && \
 mkdir -p "$HST" && \
-rsync -arv --progress --delete-after --delete -b --backup-dir="$HST" "$SRC" "$DST"
-
+rsync -arv --progress --delete-after --delete -b --backup-dir="$HST" "$SRC" "$DST" && \
 sleep 3600
