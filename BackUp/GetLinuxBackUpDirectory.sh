@@ -16,4 +16,5 @@ echo HST: $HST
 mkdir -p "$DST" && \
 mkdir -p "$HST" && \
 rsync -arv --exclude={"/var/lib/mlocate","/var/mail","/var/log","/var/lib/ispell","/var/lib/dpkg","/var/lib/apt","/var/cache","/bin","/boot","/dev","/initrd*","/lib*","/mount","/sbin","/srv","/usr","vmlinuz*","/proc","/sys","/tmp","/run","/mnt","/media","/lost+found","/Storage"} --progress --delete-after --delete -b --backup-dir="$HST" "$SRC" "$DST" && \
+find "$HST" -type f -exec touch "{}" \; && \
 sleep 3600
