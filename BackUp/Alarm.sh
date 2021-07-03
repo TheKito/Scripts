@@ -12,6 +12,6 @@ for d in $STR/*; do
         [ -s $LOG ] || echo "   ERROR   $DEV" >> $ALMTMP.err
 done
 cat $ALMTMP.err $ALMTMP.log
-cat $ALMTMP.err $ALMTMP.log | mutt -s "NEW BACKUP ALARM" $(hostname)@$(cat /etc/mailname)
+cat $ALMTMP.err $ALMTMP.log | mutt -s "BackUp Server $(hostname)" $(hostname)@$(cat /etc/mailname)
 
 sleep 86400
