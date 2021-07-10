@@ -43,6 +43,27 @@ message_size_limit = 26214400
 virtual_alias_maps = hash:/etc/postfix/virtual
 transport_maps = hash:/etc/postfix/transport
 
+#RBL
+smtpd_recipient_restrictions =
+            reject_invalid_hostname,
+            reject_unknown_recipient_domain,
+            reject_unauth_pipelining,
+            permit_mynetworks,
+            permit_sasl_authenticated,
+            reject_unauth_destination,
+#            reject_rbl_client multi.uribl.com,
+            reject_rbl_client dsn.rfc-ignorant.org,
+#            reject_rbl_client dul.dnsbl.sorbs.net,
+            reject_rbl_client list.dsbl.org,
+            reject_rbl_client sbl-xbl.spamhaus.org,
+            reject_rbl_client bl.spamcop.net,
+#            reject_rbl_client dnsbl.sorbs.net,
+            reject_rbl_client cbl.abuseat.org,
+            reject_rbl_client ix.dnsbl.manitu.net,
+            reject_rbl_client combined.rbl.msrbl.net,
+            reject_rbl_client rabl.nuclearelephant.com,
+            permit
+
 
 " > /etc/postfix/main.cf
 
