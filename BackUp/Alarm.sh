@@ -8,7 +8,7 @@ cat /dev/null > $ALMTMP.ext
 for d in $STR/*; do
         DEV=$(basename $d)
         LOG=/tmp/$DEV.log
-        find "$d" -mtime -2 -ls > $LOG
+        find "$d" -type f -mtime -2 -ls > $LOG
         [ -s $LOG ] && echo "    OK     $DEV" >> $ALMTMP.log
         [ -s $LOG ] || echo "   ERROR   $DEV" >> $ALMTMP.err
 		echo "" >> $ALMTMP.ext
