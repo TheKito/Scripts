@@ -25,7 +25,7 @@ foreach (scandir('/var/log/') as $file)
     if (strpos($file, '.log') === FALSE)
         continue;
 
-    foreach (explode("\n", str_replace("\r", "\n", file_get_contents($file))) as $line)
+    foreach (explode("\n", str_replace("\r", "\n", file_get_contents('/var/log/' . $file))) as $line)
     {
         if ($line == '')
             continue;
