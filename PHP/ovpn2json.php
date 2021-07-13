@@ -11,8 +11,20 @@ $json = '/var/log/openvpn.json';
 $section = null;
 $peers = array();
 
-foreach ($files as $file)
+foreach (scandir('/var/log/') as $file)
 {
+    if ($file == '.')
+        continue;
+
+    if ($file == '..')
+        continue;
+
+    if (strpos($file, 'openvpn-status') === FALSE)
+        continue;
+
+    if (strpos($file, '.log') === FALSE)
+        continue;
+
     foreach (explode("\n", str_replace("\r", "\n", file_get_contents($file))) as $line)
     {
         if ($line == '')
